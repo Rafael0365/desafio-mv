@@ -15,4 +15,16 @@ use App\Http\Controllers\ParticipanteController;
 */
 
 
-Route::get('/', [ParticipanteController::class,'show']);
+Route::get('/', [ParticipanteController::class,'show'])->name('participante.lista');
+
+Route::get('/cadastro', [ParticipanteController::class,'index'])->name('participante.formulario');
+
+Route::get('/cadastro/{id}', [ParticipanteController::class,'edit'])->name('participante.formulario.edit');
+
+Route::get('/cadastro/{id}', [ParticipanteController::class,'edit'])->name('participante.formulario.edit');
+
+Route::post('/insere', [ParticipanteController::class,'create'])->name('insere');
+
+Route::post('/edicao/{id}', [ParticipanteController::class,'update'])->name('participante.edicao');
+
+Route::post('/exclusao/{id}', [ParticipanteController::class,'delete'])->name('participante.exclusao');
