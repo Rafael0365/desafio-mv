@@ -24,6 +24,9 @@ class ParticipanteController extends Controller
     }
 
     public function update(Request $request, $id){
+        $request->validate(['nome'=>'required']);
+        $request->validate(['cpf'=>'required']);
+        $request->validate(['prato'=>'required']);
         $participante = Participante::find($id);
         $participante->nome = $request->input('nome');
         $participante->cpf = $request->input('cpf');
@@ -39,6 +42,9 @@ class ParticipanteController extends Controller
     }
 
     public function create(Request $request){
+        $request->validate(['nome'=>'required']);
+        $request->validate(['cpf'=>'required']);
+        $request->validate(['prato'=>'required']);
         $participante = new Participante();
         $participante->nome = $request->input('nome'); 
         $participante->cpf = $request->input('cpf'); 

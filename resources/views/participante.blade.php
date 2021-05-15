@@ -1,19 +1,14 @@
 @extends('layout.principal')
 @section('conteudo')
-    <h2>Listagem de colaboradores <a href={{route('participante.formulario')}}>novo colaborador</a></h2>
-    <table>
+    </br>
+    <h2>Listagem de colaboradores <a href={{route('participante.formulario')}}><i class="bi bi-plus-circle-fill"></i></a></h2>
+    <table class="table">
         @foreach($participantes as $c)
             <tr>
             <td>Colaborador: {{$c->nome}}</td>
-            </tr>
-            <tr>
             <td>CPF: {{$c->cpf}}</td>
-            </tr>
-            <tr>
             <td>Prato que será trazido para o café da manhã: {{$c->prato}}</td>
-            </tr>
-            <tr>
-            <td><a href="{{route('participante.formulario.edit',['id'=>$c->id])}}">editar</a></td>
+            <td><a href="{{route('participante.formulario.edit',['id'=>$c->id])}}"><i class="bi bi-pencil-square"></i></a></td>
             </tr>
         @endforeach
     </table>
